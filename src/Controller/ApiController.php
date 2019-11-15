@@ -25,6 +25,10 @@ class ApiController extends AbstractController
      */
     private $router;
 
+    /**
+     * ApiController constructor.
+     * @param UrlGeneratorInterface $router
+     */
     public function __construct(UrlGeneratorInterface $router)
     {
         $this->router = $router;
