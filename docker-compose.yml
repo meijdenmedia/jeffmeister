@@ -1,0 +1,16 @@
+version: "3.3"
+
+services:
+  jeffmeister_dev:
+    build: "."
+    container_name: jeffmeister_dev
+    ports:
+      - "9989:80"
+    volumes:
+      - ./:/var/www/html
+    environment:
+      - APPLICATION_ENV=development
+      - SKIP_COMPOSER=1
+    restart: always
+    env_file:
+      - ./.env

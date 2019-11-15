@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  jeffmeister_prod_webserver:
+    build: "."
+    container_name: jeffmeister_prod_webserver
+    environment:
+      - VIRTUAL_HOST=jeffmeister.we.gs
+      - LETSENCRYPT_EMAIL=info@innovato.nl
+      - LETSENCRYPT_HOST=jeffmeister.we.gs
+      - APPLICATION_ENV=production
+      - SKIP_CHOWN=1
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - nginx-proxy-network
+    restart: always
+    env_file:
+      - ./.env
+
+networks:
+  nginx-proxy-network:
+    external:
+      name: nginx-proxy-network
