@@ -11,6 +11,6 @@ services:
     environment:
       - APPLICATION_ENV=development
       - SKIP_COMPOSER=1
-    restart: always
+    restart: unless-stopped
     env_file:
       - ./.env
